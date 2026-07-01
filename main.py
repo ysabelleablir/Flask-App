@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/home")
 def home():
-    return render_template('landing.html', subtitle='Home Page', text='This is the home page')
+    return render_template('landing.html', subtitle='Attempt pls', text='This is the home page')
 
 @app.route("/update_server", methods=['POST'])
 def webhook():
