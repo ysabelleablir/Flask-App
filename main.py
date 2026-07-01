@@ -5,11 +5,11 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from forms import RegistrationForm, MilkForm
-from flask_behind_proxy import FlaskBehindProxy
+# from flask_behind_proxy import FlaskBehindProxy
 
 load_dotenv()
 app = Flask(__name__)
-proxied = FlaskBehindProxy(app)
+# proxied = FlaskBehindProxy(app)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
