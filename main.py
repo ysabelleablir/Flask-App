@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_sqlalchemy import SQLAlchemy
-from forms import RegistrationForm
+from forms import RegistrationForm, MilkForm
 from flask_behind_proxy import FlaskBehindProxy
 
 load_dotenv()
@@ -51,8 +51,8 @@ def submit_milk():
     form = MilkForm()
     if form.validate_on_submit():
         flash(f'Your feelings about {form.milk_type.data} have been submitted!', 'success')
-        return redirect(url_for('database'))
-    return reender_template('submit_milk.html', title='Got Any Milk?', form=form)
+        return redirect(url_for('home'))
+    return render_template('submit_milk.html', title='Got Any Milk?', form=form)
 
 @app.route("/update_server", methods=['POST'])
 def webhook():
